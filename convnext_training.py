@@ -235,7 +235,7 @@ def test_model(test_loader, model):
     return results
 
 
-def plot_curve(value, key, x_name, y_name):
+def plot_curve(model_name, value, key, x_name, y_name):
     print(f"Plotting {key}...", end="\t")
 
     data = {x_name: value[0].cpu(), y_name: value[1].cpu()}
@@ -272,7 +272,7 @@ def test_results(metrics, model_name):
             elif key == "ROC":
                 x_name = "FPR"
                 y_name = "TPR"
-            plot_curve(value, key, x_name, y_name)
+            plot_curve(model_name, value, key, x_name, y_name)
 
 
 def training_results(model_name):
